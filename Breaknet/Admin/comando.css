@@ -1,0 +1,15 @@
+.parrafo {
+ display: flex;
+ justify-content: center;
+}
+
+.parrafo p {
+  
+  width: 100%;
+  
+  height: 250px;
+  
+  margin: auto;
+  white-space: wrap;
+  overflow: hidden;
+}
