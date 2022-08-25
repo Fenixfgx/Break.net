@@ -3,7 +3,7 @@
  justify-content: center;
 }
 h3 { font-size: calc(1em + 0.5vw) }
-h3 { font-family: arial; text-align: justify; }
+h3 { font-family: arial; text-align: justify; vertical-align: middle; }
 
 .parrafo p {
   
