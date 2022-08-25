@@ -8,11 +8,9 @@ h3 { font-family: arial; text-align: center; vertical-align: middle; }
 .parrafo p {
   
   width: 100%;
-  
+ 
  .fullHeight {
-  position: absolute;
-  top: 0;
-  bottom: 0;
+  height: 100vh;
 }
   
   margin: auto;
