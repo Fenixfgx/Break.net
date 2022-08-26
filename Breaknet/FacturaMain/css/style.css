@@ -89,6 +89,10 @@ body{
     -moz-transform: translateX(40px);
 }
 
+.linkGreen{
+    color: green;
+}
+
 .description{
     margin-top: 20px;
 }
