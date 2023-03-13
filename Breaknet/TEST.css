@@ -1,0 +1,38 @@
+ .u-section-1 {
+  min-height: 810px;
+}
+
+.u-section-1 .u-text-1 {
+  font-family: "Carter One";
+  margin: 7px auto 0;
+}
+
+.u-section-1 .u-custom-html-1 {
+  min-height: 715px;
+  margin-top: 2px;
+  margin-bottom: 48px;
+  height: auto;
+}
+
+@media (max-width: 991px) {
+   .u-section-1 {
+    min-height: 730px;
+  }
+}
+
+@media (max-width: 575px) {
+   .u-section-1 {
+    min-height: 835px;
+  }
+
+  .u-section-1 .u-text-1 {
+    width: 173px;
+    margin-top: -83px;
+  }
+
+  .u-section-1 .u-custom-html-1 {
+    min-height: 727px;
+    margin-top: 31px;
+    margin-bottom: 60px;
+  }
+}
