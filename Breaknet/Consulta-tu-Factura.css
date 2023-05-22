@@ -6,25 +6,16 @@
   min-height: 749px;
 }
 
-.u-section-1 .u-text-1 {
-  font-family: "Carter One";
-  width: 346px;
-  margin: 17px auto 0;
-}
-
 .u-section-1 .u-custom-html-1 {
-  min-height: 407px;
+  min-height: 607px;
   height: auto;
-  margin-top: 30px;
-  margin-bottom: 30px;
+  margin-top: 0;
+  margin-bottom: 60px;
 }
 
 @media (max-width: 575px) {
-  .u-section-1 .u-text-1 {
-    width: auto;
-    margin-top: 12px;
-    margin-left: 0;
-    margin-right: 0;
+   .u-section-1 {
+    min-height: auto;
   }
 }iframe{
 	 overflow-y: hidden;
