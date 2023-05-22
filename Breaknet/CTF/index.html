@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Buscador Sheet</title>
+  
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Consulta Tu Factura</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e6f1ff;
+        }
+        
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #1470b1;
+        }
+        
+        .search-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        #search {
+            width: 200px;
+            margin-right: 10px;
+            padding: 5px;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 2px 2px 5px #b3c8e9, -2px -2px 5px #ffffff;
+            outline: none;
+            font-size: 16px;
+            text-align: center;
+        }
+        
+        #search-button {
+            padding: 5px 10px;
+            background-color: #1470b1;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            box-shadow: 2px 2px 5px #b3c8e9, -2px -2px 5px #ffffff;
+        }
+        
+        #search-button:hover {
+            background-color: #0a5a8b;
+        }
+        
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        
+        th, td {
+            text-align: left;
+            padding: 8px;
+        }
+        
+        th {
+            background-color: #1470b1;
+            color: white;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        
+        a {
+            color: black;
+            text-decoration: none;
+        }
+        
+        button {
+            padding: 5px 10px;
+            background-color: #1470b1;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            box-shadow: 2px 2px 5px #b3c8e9, -2px -2px 5px #ffffff;
+        }
+        
+        button:hover {
+            background-color: #0a5a8b;
+        }
+        
+        .qr-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        #image {
+            display: none;
+            width: 35%;
+            min-width: 203px;
+            margin-top: 20px;
+        }
+    </style>
+    <script>
+        $(document).ready(function() {
+            function performSearch() {
+                var searchValue = $("#search").val();
+                var url = "https://sheets.googleapis.com/v4/spreadsheets/1zoYN5JgeLrW4KtcVCPqLcXrrNO8f5jNbDiY4yIO0wiQ/values/SH?key=AIzaSyC7trVxLML3qsNu1jYg7Qmmgc-RuWsMZg8&majorDimension=ROWS";
+
+                $.get(url, function(data) {
+                    var rows = data.values;
+                    var results = [];
+
+                    for (var i = 1; i < rows.length; i++) {
+                        if (rows[i][0] === searchValue) {
+                            var name = rows[i][1] + " " + rows[i][2];
+                            var pdfLink = rows[i][3];
+                            var Estado = rows[i][4];
+                            var Valorp = rows[i][5];
+
+                            results.push({name: name, pdfLink: pdfLink, Estado: Estado, Valorp: Valorp});
+                        }
+                    }
+
+                    if (results.length > 0) {
+                        $("#results-table tbody").empty();
+                        for (var i = 0; i < results.length; i++) {
+                            var row = "<tr><td>" + results[i].name + "</td>  <td>" + results[i].Estado + "</td> <td>" + results[i].Valorp + "</td> <td><a href='" + results[i].pdfLink + "' target='_blank'><button>Descargar</button></a></td><td><button  id='pay-nequi-button' onclick='showImage()' >Pagar Vía Nequi</button></a></td></tr>";
+                            $("#results-table tbody").append(row);
+                        }
+                    } else {
+                        $('#image').hide();
+                        alert("No se encontraron resultados para la búsqueda '" + searchValue + "'.");
+                    }
+                });
+            }
+
+            $("#search-button").click(function() {
+                performSearch();
+            });
+
+            $("#search").keypress(function(event) {
+                if (event.which === 13) { // Enter key
+                    performSearch();
+                }
+            });
+        });
+
+        function showImage() {
+            $('#image').show();
+        }
+    </script>
+</head>
+<body>
+    <h1>Consulta Tu Factura</h1>
+    <div class="search-container">
+        <p style="color: #1470b1;">Ingrese un número de cédula:</p>
+        <input type="text" id="search">
+        <button id="search-button">Buscar</button>
+    </div>
+    <table id="results-table">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Estado de Pago</th>
+                <th>Valor</th>
+                <th>Factura Virtual</th>
+                <th>Pagar Factura</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    <div class="qr-container">
+        <img id="image" style="width: 35%; min-width: 203px; margin-top: 20px; box-shadow: 2px 2px 5px #b3c8e9, -2px -2px 5px #ffffff;" src="https://fenixfgx.github.io/Break.net/Breaknet/images/QR.jpeg">
+    </div>
+</body>
+</html>
+<!-- partial -->
+  
+</body>
+</html>
