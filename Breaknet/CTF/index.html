@@ -1,14 +1,4 @@
 <!DOCTYPE html>
-<html lang="en" >
-<head>
-  <meta charset="UTF-8">
-  <title>CodePen - Buscador Sheet</title>
-  
-
-</head>
-<body>
-<!-- partial:index.partial.html -->
-<!DOCTYPE html>
 <html>
 <head>
     <title>Consulta Tu Factura</title>
@@ -121,11 +111,11 @@
                     var results = [];
 
                     for (var i = 1; i < rows.length; i++) {
-                        if (rows[i][0] === searchValue) {
-                            var name = rows[i][1] + " " + rows[i][2];
-                            var pdfLink = rows[i][3];
-                            var Estado = rows[i][4];
-                            var Valorp = rows[i][5];
+                        if (rows[i][1] === searchValue) {
+                            var name = rows[i][2] + " " + rows[i][3];
+                            var pdfLink = rows[i][4];
+                            var Estado = rows[i][5];
+                            var Valorp = rows[i][6];
 
                             results.push({name: name, pdfLink: pdfLink, Estado: Estado, Valorp: Valorp});
                         }
@@ -183,9 +173,5 @@
     <div class="qr-container">
         <img id="image" style="width: 35%; min-width: 203px; margin-top: 20px; box-shadow: 2px 2px 5px #b3c8e9, -2px -2px 5px #ffffff;" src="https://fenixfgx.github.io/Break.net/Breaknet/images/QR.jpeg">
     </div>
-</body>
-</html>
-<!-- partial -->
-  
 </body>
 </html>
