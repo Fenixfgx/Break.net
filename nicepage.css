@@ -11774,7 +11774,7 @@ section.u-image:not(.u-hover-box),
 }
 @supports (position: sticky) {
   .u-header.u-sticky {
-    position: sticky;
+    position: absolute;
   }
 }
 @supports (position: -webkit-sticky) {
