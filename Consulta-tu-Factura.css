@@ -17,7 +17,17 @@
    .u-section-1 {
     min-height: auto;
   }
-}iframe{
-	 overflow-y: hidden;
-border:none;
+	iframe{
+    border: none;
+    position: absolute;
+    height: 3190px;
+    top: 28%;
+	} 
+}
+
+iframe{
+border: none;
+    position: absolute;
+    height: 2633px;
+    top: 28%;
 	} 
