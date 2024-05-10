@@ -11800,7 +11800,7 @@ section.u-image:not(.u-hover-box),
   padding-top: 0.1px;
 }
 .u-overlap .u-header.u-sticky {
-  position: fixed;
+  position: absolute;
 }
 .u-overlap.u-overlap-transparent .u-header {
   background-color: transparent !important;
